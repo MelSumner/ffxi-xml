@@ -1,0 +1,611 @@
+<?xml version="1.0" ?>
+<spellcast>
+ <guildwork
+        character="Achira"
+        server="Phoenix"
+        description="Red Mage XML"
+        job="RDM"
+    />							
+	
+	<config
+        Debug="false"
+        HideErrors="true"
+        ShowGearSwaps="false"	
+        AutoLoadXML="true"
+        RequireVersion="2.44"
+		ShowSpellInfo="false"
+	/>
+        <variables>
+        <!--Elemental Staves-->
+		        <var name="Staff-Fire">Vulcan's Staff</var>
+				<var name="Staff-Ice">Aquilo's Staff</var>
+				<var name="Staff-Wind">Auster's Staff</var>
+				<var name="Staff-Earth">Terra's Staff</var>
+				<var name="Staff-Thunder">Jupiter's Staff</var>
+				<var name="Staff-Water">Neptune's Staff</var>
+				<var name="Staff-Light">Light Staff</var>
+				<var name="Staff-Dark">Pluto's Staff</var>
+				<var name="Staff-Cure">Tefnut Wand</var>
+
+		<!--other weapons-->
+				<var name="Main"></var>
+				<var name="Sword-Trial"></var>
+				<var name="Sword"></var>
+				<var name="Dagger"></var>
+				<var name="Club"></var>
+				
+
+		<!--Grips-->		
+				<var name="Grip-DarkMagic">Caecus Grip</var>
+				<var name="Grip-DivineMagic">Divinus Grip</var>
+				<var name="Grip-ElementalMagic">Elementa Grip</var>
+				<var name="Grip-EnfeeblingMagic">Macero Grip</var>
+				<var name="Grip-EnhancingMagic">Fulcio Grip</var>
+				<var name="Grip-HealingMagic">Bugard Strap +1</var>
+    			<var name="Grip-DMG-ElementalMagic">Wise Strap</var>
+				<var name="Grip-BlackMagic">"Bugard Strap +1"</var>
+				<var name="Grip-WhiteMagic">Bugard Strap +1</var>
+				<var name="Grip-MDT">Vallus Grip</var>
+				<var name="Grip-Cure">Psychist Shield</var>
+				
+		<!--EnSpells-->
+				<var name="En-Ice">Enblizzard II</var>
+                <var name="En-Fire">Enfire II</var>
+                <var name="En-Wind">Enaero II</var>
+                <var name="En-Earth">Enstone II</var>
+                <var name="En-Thunder">Enthunder II</var>
+                <var name="En-Water">Enwater II</var>
+                <var name="En-Light">Enthunder II</var>
+                <var name="En-Dark">Enthunder II</var>  
+
+
+		<!--Misc-->		
+				<!--variable for an advanced rule that integrates pdt gear with -spell interrupt gear-->
+				<!--variable for a rule to lock feet if swift shoes are on but not activated(buffactive)-->
+				<!--variable for a rule that disables back if nexus cape|exp ring|rr item is equipped, but haven't been used yet-->
+				<!--variable to set rule as melee or caster, and activate/disable weapons appropriately-->
+				<!--variable for needing the EVA set-->
+				<!--variable to set Resist-%Element type, rule to set variable then equip Resist-%element set-->
+        </variables>
+        <sets>
+        	<group name="RDMDefault" default="yes">
+		<!--Status Sets-->
+				<set name="Idle">
+					<ammo>Aqua Sachet</ammo>
+					<head>Estoqueur's Chappel +2</head>
+					<neck>Aife's Medal</neck>
+					<lear>Gifted Earring</lear>
+					<lring>Prolix Ring</lring>
+					<body>Estoqueur's Sayon +2</body>
+					<hands>Estoqueur's Gantherots +2</hands>
+					<rear>Celestial Earring</rear>
+					<rring>Star Ring</rring>
+					<back>Kaikias' Cape</back>
+					<waist>Witch Sash Sash</waist>
+					<legs>Estoqueur's fuseau +2</legs>
+					<feet>Estoqueur's houseaux +2</feet>
+				</set>
+		
+				<set name="Resting" baseset="Idle">
+					<main>Pluto's Staff</main>
+					<head>Mirror Tiara</head>
+					<ammo>Clarus Stone</ammo>
+					<neck>Jeweled collar</neck>
+					<back>Vita Cape</back>
+					<waist>Duelist's Belt</waist>
+					<feet>Lore Sabots</feet>
+				</set>
+						
+				<set name="Engaged" baseset="Idle"><!--Haste, ACC, DEX-->
+					<main>Almace</main>
+					<sub>Thuellaic ecu</sub>
+					<ammo>Flame Sachet</ammo>
+					<head>Zelus Tiara</head>
+					<neck>Chivalrous Chain</neck>
+					<lear>Locquacious Earring</lear>
+					<rear>Brutal Earring</rear>
+					<hands>Brego Gloves</hands>
+					<waist>Goading Belt</waist>
+					<lring>Kusha's Ring</lring>
+					<rring>Lava's Ring</rring>
+					<back>Atheling Mantle</back>
+					<legs>Estoqueur's fuseau +2</legs>
+					<feet>Savateur's Gaiters</feet>
+
+				</set>					
+				
+				<set name="FastCast" baseset="Idle"><!--14%, 19%SS, 26%enfeebs, 30%RDM-->
+					<lear>Loquacious Earring</lear><!--2-->
+					<rear>Estoqueur's Earring</rear>
+					<neck>Jeweled Collar</neck>
+					<hands>Carapacho Cuffs</hands><!--15% for stoneskin-->
+					<body>Duelist's Tabard +1</body><!--10-->
+					<lring>Prolix Ring</lring><!--2-->
+					<waist>Siegel Sash</waist>
+					<head>Estoqueur's Chappel +2</head><!--12% for enfeebs-->
+				</set>						
+		<!--Magic Sets-->
+				<set name="WhiteMagic" baseset="Idle">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Type</sub>	
+					<body>Estoqueur's Sayon +2</body>
+					<waist>Cascade Belt</waist>
+					<neck>Estoqueur's Collar</neck>
+					<feet>Estoqueur's houseaux +2</feet>
+					<neck>Estoqueur's Collar</neck>
+				</set>
+				
+				<set name="BlackMagic" baseset="Idle">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Type</sub>	
+					<ammo>Phantom Tathlum</ammo>
+					<body>Praeco doublet</body>
+					<neck>Aife's Medal</neck>
+					<rear>Abyssal earring</rear>
+					<lear>Aquilo's Pearl</lear>
+					<lring>Spiral Ring</lring>
+					<back>Kaikas' Cape</back>
+					<waist>Witch Sash</waist>
+					<rring>Omniscient Ring</rring>								
+					<feet>Nebula Pigaches +1</feet>
+				</set>                  				
+
+				<set name="EnhancingMagic" baseset="Idle">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+					<neck>Enhancing Torque</neck><!--+7-->
+					<body>Hyksos Robe</body><!--+10-->
+					<hands>Augur's Gloves</hands><!--+5-->
+					<waist>Cascade Belt</waist><!--+3-->
+					<back>Estoqueuer's Cape</back><!--+6-->
+					<legs>Portent Pants</legs><!--+15-->
+					<feet>Estoqueur's houseaux +2</feet><!--+15-->
+				</set>          
+				
+				<set name="EnfeeblingMagic-WhiteMagic" baseset="WhiteMagic">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+					<head>Hyksos Khat</head>
+					<neck>Enfeebling Torque</neck>
+					<waist>Casso sash</waist>
+					<body>Estoqueur's Sayon +2</body>
+					<legs>Portent Pants</legs>
+				</set>
+
+				<set name="EnfeeblingMagic-BlackMagic" baseset="BlackMagic">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+					<head>Hyksos Khat</head>
+					<neck>Enfeebling Torque</neck>
+					<body>Hyksos Robe</body>
+					<waist>Casso sash</waist>
+					<body>Estoqueur's Sayon +2</body>
+					<legs>Portent Pants</legs>
+				</set>		
+
+				<set name="DarkMagic" baseset="BlackMagic">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+					<neck>Dark Torque</neck>
+					<waist>Casso Sash</waist>
+					<legs>Portent Pants</legs>
+				</set>
+
+				<set name="ElementalMagic" baseset="BlackMagic"><!--Elemental Enfeebs-->
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+					<neck>Elemental Torque</neck>
+				</set>
+				
+				<set name="DMG-ElementalMagic" baseset="BlackMagic"><!--Elemental Spell Damage-->
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-DMG-%Skill</sub>
+					<lear>Moldavite Earring</lear>
+					<rear>Hecate's Earring</rear>
+					<hands>Eradico Mitts</hands>
+					<legs>Estoqueur's Fuseau +2</legs>
+					<back>Kaikias' Cape</back><!--Romanus cape or no?-->
+				</set>
+
+				<set name="DMG-DivineMagic" baseset="WhiteMagic">
+					<main>$Staff-%SpellElement</main>
+					<sub>$Grip-%Skill</sub>	
+				</set>
+				
+		<!--JA Sets-->
+				<set name="Composure" baseset="Idle">
+					<head>Estoqueur's Chappel +2</head>
+					<legs>Estoqueur's fuseau +2</legs>
+					<body>Estoqueur's Sayon +2</body>					
+					<hands>Estoqueur's Gantherots +2</hands>
+					<feet>Estoqueur's houseaux +2</feet>
+				</set>
+				
+				<set name="Saboteur">
+					<hands>Estoqueur Gantherots +2</hands>
+				</set>	
+				
+		<!--Spell Specific Sets-->		
+				<set name="Refresh*">
+					<legs>Estoqueur's fuseau +2</legs>
+				</set>	
+				
+				<set name="Stoneskin" baseset="EnhancingMagic">
+					<lear>Earthcry Earring</lear>
+					<legs>Haven Hose</legs>
+					<waist>Siegel Sash</waist>
+				</set>
+
+				<set name="Curecast" baseset="Cur*">
+					<legs>Lore Slops</legs>
+					<neck>Jeweled Collar</neck>
+					<lear>Loquacious Earring</lear> 
+					<body>Duelist's Tabard +1</body>
+					<lring>Prolix Ring</lring>
+				</set>   
+								
+				<set name="Cur*" baseset="WhiteMagic">
+					<main>Tefnut Wand</main>
+					<sub>Genbu Shield</sub>	
+					<hands>Serpentes cuffs</hands>
+					<legs>Praeco Slacks</legs>
+					<feet>Serpentes Sabots</feet>
+					<neck>Fylgja Torque +1</neck>
+					<waist>Cascade Belt</waist>
+					<back>Oretania's Cape</back>
+				</set>
+		<!--Misc Sets-->
+				<set name="Savage*" baseset="WhiteMagic"><!--STR30% MND50%|Wind,Earth,Thunder-->
+					<ammo>Flame Sachet</ammo>
+					<neck>Chivalrous Chain</neck>
+					<back>Atheling Mantle</back>
+					<lear>Flame Earring</lear>
+					<waist>Thunder Belt</waist>
+					<legs>Dusk Trousers</legs>
+				</set> 
+		
+				<set name="Utsusemi*" baseset="Engaged">
+					<neck>Magoraga Beads</neck>
+				</set>
+		
+				<set name="MDT" baseset="Engaged">
+					<sub>Vallus Grip</sub>
+					<neck>Twilight Torque</neck>
+					<lear>Merman's Earring</lear>
+					<lring>Merman's Ring</lring>
+					<legs>Lore Slops</legs>
+					<feet>Lore sabots</feet>
+					<back>Cheviot Cape</back>
+				</set>
+				
+				<set name="MDT-Light" baseset="MDT">
+					<main>Pluto's Staff</main>
+					<ammo>Light Sachet</ammo>
+					<head>Flawless ribbon</head>	
+					<neck>Dualism Collar</neck>
+					<rear></rear>
+					<rring></rring>
+				</set>
+				
+				<set name="MDT-Dark" baseset="MDT">
+					<main>Pluto's Staff</main>
+					<ammo>Shadow Sachet</ammo>
+					<head>Flawless ribbon</head>	
+					<neck>Dark Torque</neck>
+					<rear></rear>
+					<rring></rring>
+				</set>
+				<set name="MDT-Fire" baseset="MDT">
+					<main></main>
+					<ammo></ammo>
+					<head>Blue Ribbon</head>
+					<neck></neck>
+					<rear></rear>
+					<rring></rring>
+				</set>				
+
+				<set name="MDT-Earth" baseset="MDT">
+					<main>Auster's Staff</main>
+					<ammo></ammo>
+					<head></head>
+					<neck></neck>
+					<rear>Earthcry Earring</rear>
+					<rring></rring>
+				</set>
+
+				<set name="MDT-Water" baseset="MDT">
+					<main>Jupiter's staff</main>
+					<ammo></ammo>
+					<head></head>
+					<neck></neck>
+					<rear></rear>
+					<rring></rring>
+				</set>
+
+				<set name="MDT-Wind" baseset="MDT">
+					<main></main>
+					<ammo></ammo>
+					<head></head>
+					<neck></neck>
+					<rear></rear>
+					<rring></rring>
+				</set>								
+
+				<set name="MDT-Ice" baseset="MDT">
+					<main></main>
+					<ammo></ammo>
+					<head></head>
+					<neck></neck>
+					<rear></rear>
+					<rring></rring>
+				</set>
+
+				<set name="MDT-Thunder" baseset="MDT">
+					<main></main>
+					<ammo></ammo>
+					<head></head>
+					<neck></neck>
+					<rear></rear>
+					<rring></rring>
+				</set>		
+	
+				<set name="PDT" baseset="Engaged">
+					<main>Terra's Staff</main>
+					<lring>Dark Ring</lring>
+					<rring>Spiral ring</rring>
+					<neck>Twilight Torque</neck>
+					<back>Cheviot Cape</back>
+					<body>Estoqueur's Sayon +2</body>							   
+				</set>
+				
+				<set name="EVA" baseset="Engaged">
+					<back>Boxer's Mantle</back>
+					<neck>Evasion Torque</neck>
+				</set>	
+				
+				<set name="Range*" baseset="Idle">
+					<rring>Merman's Ring</rring>
+					<rear>Clearview Earring</rear>
+					<main>Vulcan's Staff</main>
+					<head>Shunten Hachimaki</head>
+					<ranged>Lamian Kaman</ranged>
+					<lring></lring>
+					<back></back>                     
+					<ammo></ammo>
+					<sub></sub>
+					<hands></hands>
+					<body></body>
+				</set>
+
+				<set name="Kite" baseset="Idle">
+					<main>Terra's Staff</main>
+					<sub>Macero Grip</sub>
+					<ammo>Phantom Tathlum</ammo>
+					<head>Estoqueur's chappel +2</head>
+					<lear>Celestial Earring</lear>
+					<lring>Star Ring</lring>
+					<body>Warlock's Tabard</body>
+					<hands>Estoqueur's gantherots +1</hands>
+					<rear>Loquacious Earring</rear>
+					<rring>Star Ring</rring>
+					<back>Estoqueur's Cape</back>
+					<waist>Witch Sash</waist>
+					<legs>Estoqueur Fuseau +2</legs>
+					<feet>Nebula pigaches +1</feet>
+				</set>
+				
+				<set name="Aftercast">
+					<body>Estoqueur's Sayon +2</body>
+					<head>Duelist's Chapeau +1</head>
+					<hands>Serpentes Cuffs</hands>
+					<feet>Serpentes Sabots</feet>
+				</set>
+				
+				<!--set name="CampaignMelee" baseset="Melee">
+				</set>
+				
+				<set name="CampaignCaster" baseset="Idle">
+					<main>$SetStaff</main>
+					<sub>$Grip-%Type</sub>
+					<back>Viator Cape</back>
+				</set>
+				
+				<set name="Town" baseset="Idle">
+					<lear>Gifted Earring</lear>
+				</set-->  
+								
+        	</group>
+			<group name="CampaignCaster" default="no" inherit="RDMDefault">
+				<set name="MDT">
+				</set>
+			</group>	
+			
+			<group name="Solo" default="no" inherit="RDMDefault">
+			</group>
+			
+			<group name="SupportRole" default="no" inherit="RDMDefault">
+			</group>
+        </sets>
+<!--Rules-->
+        <rules>
+	 				  
+<!--Type Rules-->
+			<if type="*Magic">
+<!--how do I bridge the generic Magic rules (that apply to ALL Magic Skills) into the different skill types? Is just nesting fine? Also, if I have an <if buffactive> and <elseif buffactive> do I need to have an <else> as well?-->
+				<if buffactive="petrification|stun|sleep|terror|mute">
+					<cancelspell />
+					<return />
+				</if>
+				<elseif MPPLT="20" notbuffactive="Refresh*">
+						<equip>
+							<head lock="t">Duelist's Chapeau +1</head>
+							<body lock="t">Estoqueur's Sayon +2</body>
+							<hands lock="t">Serpentes Cuffs</hands>
+							<feet lock="t">Serpentes Sabots</feet>
+						</equip>
+				</elseif>
+				<elseif BuffActive="Silence">
+					<cancelspell />
+					<command>input /item "Echo Drops" &lt;me&gt;</command>
+				</elseif>  
+				
+				<if skill="EnfeeblingMagic">
+						<if notbuffactive="Visitant|Voidwatch" type="WhiteMagic|BlackMagic">
+								<equip set="%Type" />
+							</if>
+							<else>
+								<equip set="%Skill-%Type" />													
+							</else>
+				</if>	
+				<elseif skill="HealingMagic">
+						<if spell="Cur*">
+							<if notspell="*na">
+								<equip set="%Type" />
+									<if spell="Cure IV" MPLT="88">
+										<changespell spell="Cure III" />
+									</if>
+									<elseif spell="Cure III" MPLT="46">
+										<changespell spell="Cure II" />
+									</elseif>
+									<else>
+										<equip set="%Spell" />
+									</else>	
+							</if>		
+						</if>   
+						<elseif Spell="*na">
+							<equip set="%Skill" />
+						</elseif>
+						<elseif Spell="*raise*">
+							<equip set="fastcast" />
+						</elseif>
+						<else>
+							<equip set="%Type" />
+						</else>
+				</elseif>
+	<!--Enhancing Magic-->
+				<elseif skill="EnhancingMagic">
+						<if Spell="Stoneskin">
+							<equip set="FastCast" />
+							<equip when="midcast" set="%Spell" />
+						</if>
+						<elseif spell="Escape|Warp*|Recall*">
+							<return />
+						</elseif>
+						<elseif spell="Teleport*">
+							<equip set="fastcast" />
+						</elseif>       
+						<elseif spell="Refresh*">
+							<equip set="%Spell" />
+						</elseif>
+						<elseif spell="En*" NotDayElement="Light*|Dark*">
+							<changespell spell="$En-%DayElement" />
+						</elseif>
+						<else>
+							<if casttimegt="3">
+								<equip set="fastcast" />
+								<equip when="midcast" set="%Skill" />
+							</if>
+							<else>  
+								<equip set="%Skill" />
+							</else>
+						</else>
+				</elseif>
+	<!--elemental Magic-->          
+				<elseif skill="ElementalMagic">
+						<if spell="Rasp|Burn|Drown|Choke|Frost|Shock">
+								<if mode="or" buffactive="Visitant" area="Dynamis*">
+									<equip set="%Skill" />
+								</if>
+								<else>
+									<equip set="DMG-%Skill" />
+								</else>
+						</if>
+						<else>
+							<if casttimegt="5" notbuffactive="Spontaneity"> 
+								<equip set="fastcast" />                                         
+								<equip when="midcast" Set="DMG-%Skill" />
+							</if>
+							<else>
+								<equip set="DMG-%Skill" />
+							</else>       
+						</else>         
+				</elseif>
+	<!--Dark Magic-->
+				<elseif skill="DarkMagic">      
+						<if casttimegt="5">
+							<equip set="fastcast" />
+							<equip when="midcast" Set="%Skill" />
+						</if>
+						<elseif spell="Bio*">
+							<equip set="%Type" />
+						</elseif>	
+						<else>
+							<equip set="%Skill" />
+						</else>         
+				</elseif>       
+			</if>
+
+			<elseif type="JobAbility">
+				<if spell="Composure|Saboteur">
+					<castdelay delay=".3" />
+					<equip set="%Spell" />
+				</if>
+			</elseif>
+			
+			<elseif type="Ninjutsu"><!--does this have to go under *Magic skills???-->
+				<if spell="Utsusemi*">
+					<equip set="%Spell" />
+				</if>   
+			</elseif>
+			
+			<elseif type="Weaponskill">
+				<if spell="Savage*">
+					<if SpellTargetDistanceGT="6">
+						<command>input /echo ~ %SpellTargetName is too far %SpellTargetDistance ~</command>
+						<CancelSpell />
+						<return />
+					</if>
+					<else>
+						<castdelay delay=".2" />
+						<equip set="%Spell" />
+					</else>	
+				</if>
+				<else>
+					<equip set="%Status" /><!--this will change once I make a WS Set-->
+				</else>		
+			</elseif>   
+
+			<!--This type isn't in SC wiki rule list. I had this set at type=CommandPrefix but was told it was incorrect. Still not sure if this is correct either- I'm trying to equip my Range* set when doing a /ra. 
+			<elseif type="Misc*">
+				<if spell="Range*">
+					<castdelay delay=".2" />
+					<equip set="%Spell" />
+				</if>
+			</elseif>	-->
+        <!--Warning Bells-->    			
+			<if EquipBody="empty" EquipHead="empty" NotArea="*Remnants">
+				<equip set="%Status" />
+			</if>
+<!--Autoset Rules-->       				
+			<if status="dead">
+				<cancelspell />
+				<return />
+			</if>
+			<elseif status="zoning">
+				<return />
+			</elseif>
+			<elseif status="Engaged">
+				<equip when="aftercast" set="%Status" />
+			</elseif>	
+			<elseif status="resting">
+				<equip set="%status" />
+			</elseif>	
+			<elseif status="idle">
+				<equip when="aftercast" set="%Status" />
+			</elseif>	
+			<if mpplt="30">
+				<equip when="aftercast" set="aftercast" />
+			</if>	
+	</rules>
+</spellcast>
+

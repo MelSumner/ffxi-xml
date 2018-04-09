@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spellcast>
+	<guildwork
+	   character="Achira"
+	   server="Phoenix"
+	   description="White Mage XML"
+	   job="WHM"
+    />
+
+	<config
+        Debug="true"
+        HideErrors="false"
+        ShowGearSwaps="false"
+        AutoLoadXML="true"
+        RequireVersion="2.44"
+/>
+	<variables>
+		<!--Main-->
+		<var name="Staff-Ice">Aquilo's Staff</var>
+		<var name="Staff-Dark">Pluto's Staff</var>
+		<var name="Staff-Thunder">Jupiter's Staff</var>
+		<var name="Staff-Light">Apollo's Staff</var>
+		<var name="Staff-Wind">Auster's Staff</var>
+		<var name="Staff-Fire">Vulcan's Staff</var>
+		<var name="Staff-Earth">Terra's Staff</var>
+		<var name="Staff-Water">Neptune's Staff</var>
+		<var name="Staff-HealingMagic">Teiwaz</var>
+		<var name="Club-Cure">Tefnut Wand</var>
+		<var name="Club-EnhancingMagic">Beneficus</var>
+		<var name="Club-Engaged">Molva Maul</var>
+
+		<!--Sub-->
+		<var name="Grip-DarkMagic">Caecus Grip</var>
+		<var name="Grip-DivineMagic">Divinus Grip</var>
+		<var name="Grip-ElementalMagic">Elementa Grip</var>
+		<var name="Grip-EnfeeblingMagic">Macero Grip</var>
+		<var name="Grip-EnhancingMagic">Fulcio Grip</var>
+		<var name="Sub-EnhancingMagic">Genbu's Shield</var>
+		<var name="Sub-HealingMagic">Genbu's Shield</var>
+		<var name="Grip-DMG-ElementalMagic">Wise Strap</var>
+		<var name="Grip-BlackMagic">Bugard Strap +1</var>
+		<var name="Grip-WhiteMagic">Verse Strap</var>
+		<var name="Grip-MDT">Vallus Grip</var>
+		<var name="Grip-Engaged">Danger Grip</var>
+		<var name="Sub-Haste">Thuellaic Ecu</var>
+		<var name="Grip-FastCast">Vivid Strap</var>
+	</variables>
+
+	<sets>
+		<group name="WHM Default" default="yes">
+			<set name="Idle|aftercast">
+				<range>Aureole</range>
+				<head>Nefer khat</head>
+				<neck>Fylgja torque +1</neck>
+				<lear>Celestial earring</lear>
+				<lring>Prolix Ring</lring>
+				<body>Nefer kalasiris</body>
+				<hands>Serpentes cuffs</hands>
+				<rear>Roundel earring</rear>
+				<rring>Strendu ring</rring>
+				<back>Tempered cape</back>
+				<waist>Witful Belt</waist>
+				<legs>Orison Pantaloons +2</legs>
+				<feet>Serpentes sabots</feet>
+			</set>
+
+			<set name="Staff-Cure">
+				<main>Teiwaz</main>
+				<sub>Vivid Strap</sub>
+			</set>
+			
+			<set name="Club-Cure">
+				<main>Tefnut Wand</main>
+				<sub>Genbu's Shield</sub>
+			</set>
+
+			<set name="Fastcast">
+				<neck>Orison Locket</neck>
+				<rear>Loquacious Earring</rear>
+				<lring>Prolix Ring</lring>
+				<lear>Loquacious Earring</lear>
+				<waist>Witful Belt</waist>
+				<ammo>Incantor Stone</ammo>
+				<back>Swith Cape</back>
+			</set>
+			<set name="FastCast-EnhancingMagic" baseset="Idle">
+				<neck>Orison Locket</neck>
+				<rear>Loquacious Earring</rear>
+				<lring>Prolix Ring</lring>
+				<ammo>Incantor Stone</ammo>
+				<waist>Siegel Sash</waist>
+				<back>Swith Cape</back>
+			</set>
+			
+			<set name="FastCast-Stoneskin" baseset="WhiteMagic">
+				<neck>Orison Locket</neck>
+				<rear>Loquacious Earring</rear>
+				<lring>Prolix Ring</lring>
+				<hands>Carapacho Cuffs</hands>
+				<ammo>Incantor Stone</ammo>
+				<back>Swith Cape</back>
+				<waist>Siegel Sash</waist>
+			</set>
+			
+			<set name="FastCast-Cure" baseset="WhiteMagic">
+				<neck>Orison Locket</neck>
+				<rear>Loquacious Earring</rear>
+				<lring>Prolix Ring</lring>
+				<ammo>Incantor Stone</ammo>
+				<waist>Witful Belt</waist>
+				<feet>Cure Clogs</feet>
+				<back>Swith Cape</back>
+				<body>Nefer Kalasiris</body>
+			</set>	
+
+			<set name="Cure*|Cura*" baseset="Idle">
+				<main>Tefnut Wand</main>
+				<head>Orison cap +2</head>
+				<body>Orison Bliaud +2</body>
+				<hands>Serpentes cuffs</hands>
+				<feet>Serpentes Sabots</feet>
+				<lear>Orison Earring</lear>
+				<rear>Roundel earring</rear>
+				<neck>Fylgja Torque +1</neck>
+				<lring>Sirona's Ring</lring>
+				<rring>Ephedra ring</rring>
+				<sub>Genbu's Shield</sub>
+				<back>Tempered Cape</back>
+			</set>
+
+			<set name="WhiteMagic" baseset="Idle">
+				<main>Tefnut Wand</main>
+				<body>Praeco Doublet</body>
+				<hands>Augur's Gloves</hands>
+				<waist>Cascade Belt</waist>
+				<lring>Star Ring</lring>
+				<neck>Aife's medal</neck>
+				<lear>Celestial Earring</lear>
+				<rear>Celestial Earring5</rear>
+				<back>Kaikias' Cape</back>
+			</set>
+
+			<set name="HealingMagic" baseset="Idle">
+				<neck>Healing Torque</neck>
+				<waist>Bishop's Sash</waist>
+				<lring>Sirona's Ring</lring>
+				<rring>Ephedra ring</rring>
+			</set>
+	
+			<set name="BlackMagic" baseset="Idle">
+				<main>Prudence Rod</main>
+				<range>Aureole</range>
+				<lear>Locquacious Earring</lear>
+				<head>Seiokona Beret</head>
+				<rear>Aredan Earring</rear>
+				<lring>Irrwisch Ring</lring>
+				<body>Praeco Doublet</body>
+				<hands>Iuvenalis mittens</hands>
+				<back>Kaikias' Cape</back>
+				<rring>Aquilo's ring</rring>
+				<waist>Witch Sash</waist>
+				<legs>Galvanic Slops</legs>
+				<feet>Nebula pigaches +1</feet>
+			</set>
+
+			<set name="BlackMagic-EnfeeblingMagic" baseset="BlackMagic">
+				<!--when skill matters more-->
+				<!--Enfeebling Skill, Magic Accuracy, and INT-->
+				<main>$Staff-%SpellElement</main>
+				<sub>$Grip-%Skill</sub>
+				<range>Aureole</range>
+				<head>Hyksos khat</head>
+				<neck>Enfeebling Torque</neck>
+				<body>Hyksos Robe</body>
+				<waist>Casso Sash</waist>
+				<lring>Irrwisch Ring</lring>
+				<legs>Portent Pants</legs>
+			</set>
+
+			<set name="WhiteMagic-EnfeeblingMagic" baseset="WhiteMagic">
+				<!--Enfeebling Skill, Magic Accuracy, and MND-->
+				<main>$Staff-%SpellElement</main>
+				<sub>$Grip-%Skill</sub>
+				<range>Aureole</range>
+				<body>Praeco Doublet</body>
+				<neck>Enfeebling torque</neck>
+				<waist>Witch Sash</waist>
+				<lring>Irrwisch Ring</lring>
+				<rring>Miseria Ring</rring>
+				<legs>Portent Pants</legs>
+				<hands>Iuvenalis mittens</hands>
+				<head>Hyksos khat</head>
+			</set>
+
+			<set name="Resting" baseset="Idle">
+				<main>Pluto's Staff</main>
+				<ammo>Clarus Stone</ammo>
+				<head>Mirror Tiara</head>
+				<body>Errant Houppelande</body>
+				<back>Vita Cape</back>
+				<legs>Sagacity Lappas</legs>
+			</set>
+
+			<set name="DMG-ElementalMagic" baseset="BlackMagic">
+				<!--Magic Attack and Intelligence-->
+				<main>$Staff-%SpellElement</main>
+				<sub>Wise Strap</sub>
+				<lear>Moldavite Earring</lear>
+				<rear>Hecate's Earring</rear>
+				<body>Hyksos Robe</body>
+				<hands>Eradico Mitts</hands>
+				<back>Searing Cape</back>
+				<feet>Nebula Pigaches +1</feet>
+			</set>
+
+			<set name="ElementalMagic" baseset="BlackMagic">
+				<!--Elemental Magic Skill and Intelligence-->
+				<main>$Staff-%SpellElement</main>
+				<sub>$Grip-%Skill</sub>
+				<body>Hyksos Robe</body>
+				<neck>Elemental Torque</neck>
+				<waist>Olympus Sash</waist>
+				<lring>Irrwisch Ring</lring>
+				<!--feet>Augur's Gaiters</feet-->
+			</set>
+
+			<set name="WhiteMagic-EnhancingMagic" baseset="WhiteMagic">
+				<main>Beneficus</main>
+				<sub>Genbu's Shield</sub>
+				<lear>Loquacious Earring</lear>
+				<body>Hyksos Robe</body>
+				<hands>Augur's gloves</hands>
+				<neck>Enhancing Torque</neck>
+				<waist>Olympus Sash</waist>
+				<legs>Cleric's Pantaloons +2</legs>
+			</set>
+
+			<set name="BlackMagic-EnhancingMagic" baseset="BlackMagic">
+				<main>Beneficus</main>
+				<sub>Genbu's Shield</sub>
+				<body>Hyksos Robe</body>
+				<neck>Enhancing Torque</neck>
+				<hands>Augur's Gloves</hands>
+				<waist>Olympus Sash</waist>
+				<legs>Cleric's Pantaloons +2</legs>
+			</set>
+
+			<set name="Stoneskin" baseset="WhiteMagic">
+				<legs>Haven Hose</legs>
+				<rear>Earthcry Earring</rear>
+			</set>
+
+			<set name="Bar*" baseset="WhiteMagic-EnhancingMagic">
+				<main>Beneficus</main>
+				<sub>Genbu's Shield</sub>
+				<legs>Cleric's Pantaloons +2</legs>
+				<body>Orison Bliaud +2</body>
+				<head>Orison Cap +2</head>
+				<hands>Orison Mitts +2</hands>
+				<feet>Orison Duckbills +2</feet>
+			</set>
+
+			<set name="DarkMagic" baseset="BlackMagic">
+				<main>Pluto's Staff</main>
+				<sub>$Grip-%Skill</sub>
+				<head>Seiokona Beret</head>
+				<neck>Dark Torque</neck>
+				<waist>Casso Sash</waist>
+				<rring>Archon Ring</rring>
+				<legs>Portent Pants</legs>
+			</set>
+
+			<set name="Engaged" baseset="Idle">
+			</set>
+
+			<set name="Hexa" baseset="WhiteMagic">
+			</set>
+
+			<set name="PDT" baseset="Idle">
+				<main>Terra's Staff</main>
+				<sub></sub>
+				<neck>Twilight Torque</neck>
+				<lring>Dark Ring</lring>
+				<back>Cheviot Cape</back>
+			</set>
+
+			<set name="DivineMagic" baseset="WhiteMagic">
+				<!--Divine Skill, then M.Acc, then MND-->
+				<main>Apollo's staff</main>
+				<sub>Divinus Grip</sub>
+				<neck>Divine Torque</neck>
+				<waist>Bishop's Sash</waist>
+				<hands></hands>
+				<lear>Divine Earring</lear>
+			</set>
+
+			<set name="DMG-DivineMagic" baseset="WhiteMagic">
+				<main>Apollo's staff</main>
+				<sub>Wise Strap</sub>
+				<lear>Hecate's Earring</lear>
+				<rear>Moldavite Earring</rear>
+				<neck>Stoicheion Medal</neck>
+				<hands>Eradico Mitts</hands>
+				<back>Searing Cape</back>
+				<waist>Bishop's Sash</waist>
+			</set>
+
+			<set name="Regen*|*Caress" baseset="Idle">
+				<hands>Orison Mitts +2</hands>
+				<body>Cleric's briault</body>
+			</set>
+
+			<set name="Martyr|Devotion" baseset="Idle">
+				<!--Max HP-->
+			</set>
+
+			<set name="MDT" baseset="BlackMagic">
+				<main>Terra's Staff</main>
+				<sub>Vallus Grip</sub>
+				<legs>Lore Slops</legs>
+				<lring>Archon Ring</lring>
+				<rring>Minerva's Ring</rring>
+				<lear>Merman's Earring</lear>
+			</set>
+
+			<set name="MDT-Light" baseset="MDT">
+				<main>Pluto's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<ammo>Light Sachet</ammo>
+				<!--+10-->
+				<head>Flawless Ribbon</head>
+				<!--+30-->
+				<neck>Dualism Collar</neck>
+				<!--+10-->
+			</set>
+
+			<set name="MDT-Dark" baseset="MDT">
+				<main>Apollo's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<head>Flawless Ribbon</head>
+				<!--+30-->
+				<back>Cheviot Cape</back>
+				<!--+13-->
+				<neck>Dualism Collar</neck>
+				<!--+10-->
+				<lear>Pluto's Earring</lear>
+				<!--+16-->
+			</set>
+
+			<set name="MDT-Fire"  baseset="MDT">
+				<ammo>Flame Sachet</ammo>
+				<!--+10-->
+				<main>Neptune's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<lear>Celestial Earring</lear>
+				<!--+12-->
+				<rear>Celestial Earring</rear>
+				<!--+12-->
+				<head>Blue Ribbon</head>
+				<!--+6-->
+				<lring>Crimson Ring</lring>
+				<!--+9-->
+			</set>
+
+			<set name="MDT-Earth" baseset="MDT">
+				<ammo>Soil Sachet</ammo>
+				<!--+10-->
+				<main>Auster's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<head>Blue Ribbon</head>
+				<!--+6-->
+				<lring>Topaz Ring</lring>
+				<!--+9-->
+				<lear>Soil Earring</lear>
+				<!--+15-->
+				<rear>Earthcry Earring</rear>
+				<!--+10-->
+			</set>
+
+			<set name="MDT-Thunder" baseset="MDT">
+				<main>Terra's Staff</main>
+				<!--+20-->
+				<ammo>Thunder Sachet</ammo>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<head>Blue Ribbon</head>
+				<!--+6-->
+				<lear>Soil Earring</lear>
+				<!--+15-->
+			</set>
+
+			<set name="MDT-Water" baseset="MDT">
+				<ammo>Aqua Sachet</ammo>
+				<!--+10-->
+				<main>Jupiter's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<head>Blue Ribbon</head>
+				<!--+6-->
+				<lear>Celestial Earring</lear>
+				<!--+12-->
+				<rear>Celestial Earring</rear>
+				<!--+12-->
+				<lring>Star Ring</lring>
+				<!--+9-->
+				<rring>Star Ring</rring>
+				<!--+9-->
+			</set>
+
+			<set name="MDT-Wind" baseset="MDT">
+				<main>Aquilo's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<ammo>Breeze Sachet</ammo>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<head>Blue Ribbon</head>
+				<!--+6-->
+			</set>
+
+			<set name="MDT-Ice" baseset="MDT">
+				<main>Vulcan's Staff</main>
+				<!--+20-->
+				<sub>Vallus Grip</sub>
+				<neck>Jeweled Collar</neck>
+				<!--+10-->
+				<head>Rokugo Hachimaki</head>
+				<!--+10-->
+				<lring>Omniscient Ring</lring>
+				<!--+10-->
+				<lear>Flame Earring</lear>
+				<!--+15-->
+			</set>
+
+		</group>
+
+	</sets>
+
+
+
+	<rules>
+		<!--Gear Rules-->
+		<if status="dead">
+			<cancelspell />
+			<return />
+		</if>
+		<if status="engaged">
+			<equip when="aftercast" set="%Status" />
+		</if>
+		<if spell="Teleport*|Warp">
+			<return />
+		</if>
+		<!--Magic Rules-->
+		<if type="*Magic">
+			<if buffactive="petrification|stun|sleep|terror|mute">
+				<cancelspell />
+				<return />
+			</if>
+			<elseif BuffActive="Silence">
+				<cancelspell />
+				<command>input /item "Echo Drops" &lt;me&gt;</command>
+			</elseif>
+			<!--Skills-->
+			<if skill="EnfeeblingMagic">
+				<if notbuffactive="Visitant|Voidwatch">
+					<equip set="%Type" />
+				</if>
+				<else>
+					<equip set="%Type-%Skill" />
+				</else>
+			</if>
+			<elseif skill="HealingMagic">
+				<if Spell="*na">
+					<equip set="%Skill" />
+				</if>
+				<elseif spell="Cure*|Cura*">
+					<if casttimegt="2">
+						<equip when="precast" set="fastcast-Cure" />
+						<equip when="midcast" set="%Spell" />
+					</if>
+					<else>	
+						<equip set="%Spell" />
+					</else>
+				</elseif>
+				<elseif Spell="*raise*">
+					<equip set="fastcast" />
+				</elseif>
+				<else>
+					<equip set="%Type" />
+				</else>
+			</elseif>
+			<!--Enhancing Magic-->
+			<elseif skill="EnhancingMagic">
+				<if Spell="Stoneskin">
+					<equip set="fastcast-stoneskin" />
+					<equip when="midcast" set="stoneskin" />
+				</if>
+				<elseif spell="Escape|Warp*|Recall*">
+					<return />
+				</elseif>
+				<elseif spell="Refresh*">
+					<equip set="Fastcast-EnhancingMagic" />
+				</elseif>
+				<elseif spell="Regen*">
+					<equip set="Fastcast-EnhancingMagic" />
+					<equip when="midcast" set="%Spell" />
+				</elseif>
+				<else>
+					<if type="WhiteMagic">
+						<if casttimegt="3">
+							<equip set="fastcast-enhancingmagic" />
+							<equip when="midcast" set="%Type-%Skill" />
+						</if>
+						<else>
+							<castdelay delay="0.1" />  
+							<equip set="%Type-%Skill" />
+						</else>
+					</if>
+					<elseif type="BlackMagic">
+						<if casttimegt="3">
+							<equip set="fastcast" />
+							<equip when="midcast" set="%Type-%Skill" />
+						</if>
+						<else>
+							<equip set="%Type-%Skill" />
+						</else>
+					</elseif>	
+				</else>
+			</elseif>
+			<!--elemental Magic-->
+			<elseif skill="ElementalMagic">
+				<if spell="Rasp|Burn|Drown|Choke|Frost|Shock">
+					<equip set="%Type" />
+				</if>
+				<else>
+					<if casttimegt="3">
+						<equip set="fastcast" />
+						<equip when="midcast" Set="DMG-%Skill" />
+					</if>
+					<else>
+						<castdelay delay="0.1" />
+						<equip set="DMG-%Skill" />
+					</else>
+				</else>
+			</elseif>
+			<!--Dark Magic-->
+			<elseif skill="DarkMagic">
+				<if casttimegt="5">
+					<equip set="fastcast" />
+					<equip when="midcast" Set="%Skill" />
+				</if>
+				<else>
+					<equip set="%Skill" />
+				</else>
+			</elseif>
+		</if>
+
+		<!--End Rules - Process Autosets-->
+		<if TimeGT="05.59" TimeLT="18.00">
+        	<equip when="Resting|aftercast">
+            	<feet lock="yes">Serpentes Sabots</feet>
+	        </equip>
+    	</if>
+	    <else>
+    	    <equip when="Resting|aftercast">
+        	    <hands lock="yes">Serpentes Cuffs</hands>
+	        </equip>
+    	</else>
+		<equip when="aftercast" set="aftercast" />
+	</rules>
+</spellcast>
+
